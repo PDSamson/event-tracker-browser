@@ -46,6 +46,27 @@ const deleteFailure = function () {
   $('#feedback-message').text('Deletion Failed')
 }
 
+const findSuccess = function (data) {
+  const event = data.event
+  $('#feedback-message').text('Event retrieved')
+  $('#update-title').attr('value', event.title)
+  $('#update-location').attr('value', event.location)
+  $('#update-dresscode').attr('value', event.dresscode)
+  $('#update-date').attr('value', event.date)
+  $('#update-attendees').attr('value', event.attendees)
+  $('#update-event').show()
+}
+
+const findFailure = function () {
+  $('#feedback-message').text('Event not found')
+}
+
+const populateUpdateFields = function (id) {
+  api.findEvent(id)
+    .then(findSuccess)
+    .catch(findFailure)
+}
+
 const showSuccess = function (data) {
   console.log(data.events)
   const showEventsHtml = showEventsTemplate({ events: data.events })
@@ -55,6 +76,11 @@ const showSuccess = function (data) {
     api.deleteEvent($(e.target).parent().data('id'))
       .then(deleteSuccess(e))
       .catch(deleteFailure)
+  })
+  $('.update').on('click', function (e) {
+    e.preventDefault()
+    store.id = $(e.target).parent().data('id')
+    populateUpdateFields(store.id)
   })
 }
 
@@ -70,6 +96,20 @@ const createFailure = function () {
   $('#feedback-message').text('Event Creation Failed')
 }
 
+const updateSuccess = function () {
+  $('#update-event').hide()
+  $('.event-container').empty()
+  $('#feedback-message').text('Update Complete')
+  api.showEvents()
+    .then(showSuccess)
+    .catch(showFailure)
+}
+
+const updateFailure = function () {
+  populateUpdateFields(store.id)
+  $('#feedback-message').text('Update Failed')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -82,5 +122,7 @@ module.exports = {
   showSuccess,
   showFailure,
   createSuccess,
-  createFailure
+  createFailure,
+  updateSuccess,
+  updateFailure
 }

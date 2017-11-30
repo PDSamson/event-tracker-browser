@@ -54,6 +54,14 @@ const onCreateEvent = function (event) {
   $('#create-event').children('input').val('')
 }
 
+const onUpdateEvent = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.updateEvent(data)
+    .then(ui.updateSuccess)
+    .catch(ui.updateFailure)
+}
+
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -61,6 +69,7 @@ const addHandlers = function () {
   $('#change-password').on('submit', onChangePassword)
   $('#show-events').on('submit', onShowEvents)
   $('#create-event').on('submit', onCreateEvent)
+  $('#update-event').on('submit', onUpdateEvent)
 }
 
 module.exports = {

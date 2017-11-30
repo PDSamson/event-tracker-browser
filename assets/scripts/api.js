@@ -70,6 +70,27 @@ const deleteEvent = function (id) {
   })
 }
 
+const findEvent = function (id) {
+  return $.ajax({
+    url: config.apiOrigin + '/events/' + id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const updateEvent = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/events/' + store.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -77,5 +98,7 @@ module.exports = {
   changePassword,
   showEvents,
   createEvent,
-  deleteEvent
+  deleteEvent,
+  findEvent,
+  updateEvent
 }

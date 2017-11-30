@@ -8,6 +8,8 @@ $(() => {
   setAPIOrigin(location, config)
 })
 
+$('#update-event').hide()
+
 $(() => {
   events.addHandlers()
 })
