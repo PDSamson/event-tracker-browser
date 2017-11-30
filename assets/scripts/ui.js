@@ -1,5 +1,6 @@
 'use strict'
 const store = require('./store')
+const showEventsTemplate = require('./templates/event-listing.handlebars')
 
 const signUpSuccess = function () {
   $('#feedback-message').text('Sign-up Successful')
@@ -37,6 +38,12 @@ const changeFailure = function () {
 
 const showSuccess = function (data) {
   console.log(data.events)
+  const showEventsHtml = showEventsTemplate({ events: data.events })
+  $('.remove').on('click', function (e) {
+    e.preventDefault()
+    $(e.target).parent().remove()
+  })
+  $('.event-container').append(showEventsHtml)
 }
 
 const showFailure = function () {
