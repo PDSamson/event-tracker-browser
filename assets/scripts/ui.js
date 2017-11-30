@@ -1,5 +1,6 @@
 'use strict'
 const store = require('./store')
+const api = require('./api')
 const showEventsTemplate = require('./templates/event-listing.handlebars')
 
 const signUpSuccess = function () {
@@ -36,14 +37,25 @@ const changeFailure = function () {
   $('#feedback-message').text('Password change failed')
 }
 
+const deleteSuccess = function (event) {
+  $('#feedback-message').text('Event Deleted')
+  $(event.target).parent().remove()
+}
+
+const deleteFailure = function () {
+  $('#feedback-message').text('Deletion Failed')
+}
+
 const showSuccess = function (data) {
   console.log(data.events)
   const showEventsHtml = showEventsTemplate({ events: data.events })
+  $('.event-container').append(showEventsHtml)
   $('.remove').on('click', function (e) {
     e.preventDefault()
-    $(e.target).parent().remove()
+    api.deleteEvent($(e.target).parent().data('id'))
+      .then(deleteSuccess(e))
+      .catch(deleteFailure)
   })
-  $('.event-container').append(showEventsHtml)
 }
 
 const showFailure = function () {

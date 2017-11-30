@@ -60,11 +60,22 @@ const createEvent = function (data) {
   })
 }
 
+const deleteEvent = function (id) {
+  return $.ajax({
+    url: config.apiOrigin + '/events/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
   showEvents,
-  createEvent
+  createEvent,
+  deleteEvent
 }
