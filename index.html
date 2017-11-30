@@ -12,14 +12,38 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+      <h1>Event Maker</h1>
+      <div id="feedback-message" class="feedback-message"></div>
+      <form id="sign-up">
+        <input name="credentials[email]" type="text" placeholder="email">
+        <input name="credentials[password]" type="password" placeholder="password">
+        <input name="credentials[password_confirmation]" type="password" placeholder="confirm password">
+        <button type="submit" class="btn btn-default">Sign Up</button>
+      </form>
+      <form id="sign-in">
+        <input name="credentials[email]" type="text" placeholder="email">
+        <input name="credentials[password]" type="password" placeholder="password">
+        <button type="submit" class="btn btn-default">Sign In</button>
+      </form>
+      <form id="change-password" class="mechanic">
+        <input type="text" name="passwords[old]" placeholder="Old Password">
+        <input type="text" name="passwords[new]" placeholder="New Password">
+        <button type="submit" class="btn btn-default">Change Password</button>
+      </form>
+      <form id="sign-out" class="sign-out">
+        <button type="submit" class="btn btn-default">Sign Out</button>
+      </form>
+      <form id="show-events" class="mechanic">
+        <button type="submit" class="btn btn-default">Show me my events</button>
+      </form>
+      <form id="create-event" class="mechanic">
+        <input type="text" name="event[title]" placeholder="Title">
+        <input type="text" name="event[location]" placeholder="Location">
+        <input type="text" name="event[dresscode]" placeholder="Dresscode">
+        <input type="text" name="event[date]" placeholder="Date">
+        <input type="text" name="event[attendees]" placeholder="# of Attendees">
+        <button type="submit" class="btn btn-default">Add Event</button>
+      </form>
+      <div class="event-container"></div>
     </body>
 </html>
