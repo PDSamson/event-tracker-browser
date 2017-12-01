@@ -73,6 +73,7 @@ const populateUpdateFields = function (id) {
 
 const showSuccess = function (data) {
   console.log(data.events)
+  $('.event-container').empty()
   const showEventsHtml = showEventsTemplate({ events: data.events })
   $('.event-container').append(showEventsHtml)
   $('.remove').on('click', function (e) {
@@ -102,7 +103,6 @@ const createFailure = function () {
 
 const updateSuccess = function () {
   $('#update-event').hide()
-  $('.event-container').empty()
   $('#feedback-message').text('Update Complete')
   api.showEvents()
     .then(showSuccess)
