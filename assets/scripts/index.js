@@ -9,6 +9,7 @@ $(() => {
 })
 
 $('#update-event').hide()
+$('.content-page').hide()
 
 $(() => {
   events.addHandlers()

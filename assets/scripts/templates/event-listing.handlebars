@@ -1,14 +1,12 @@
 {{#each events as |event|}}
 
    <!-- Developers, why are we using data-id and not just id? -->
-   <div data-id="{{event.id}}">
+   <div class="events" data-id="{{event.id}}">
      <h2>Title: {{event.title}}</h2>
-     <h3>Location: {{event.location}}</h3>
-     <h3>Dresscode: {{event.dresscode}}</h3>
-     <h3>Date: {{event.date}}</h3>
-     <h3>Attendees: {{event.attendees}}</h3>
-     <button class="remove" type="button" name="button">Remove</button>
-     <button class="update" type="button" name="button">Update</button>
+     <p>Location: {{event.location}} Date: {{event.date}}</p>
+     <p>Dresscode: {{event.dresscode}} Attendees: {{event.attendees}}</p>
+     <button class="bton remove" type="button" name="button">Remove</button>
+     <button class="bton update" type="button" name="button">Update</button>
    </div>
 
 {{/each}}

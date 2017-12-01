@@ -13,6 +13,8 @@ const signUpFailure = function () {
 
 const signInSuccess = function (data) {
   $('#feedback-message').text('Sign-in Success')
+  $('.sign-in-page').hide()
+  $('.content-page').show()
   store.user = data.user
 }
 
@@ -23,6 +25,8 @@ const signInFailure = function () {
 const signOutSuccess = function () {
   $('#feedback-message').text('Sign out Success')
   store.user = null
+  $('.content-page').hide()
+  $('.sign-in-page').show()
 }
 
 const signOutFailure = function () {

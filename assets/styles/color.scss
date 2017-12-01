@@ -1,0 +1,52 @@
+$lightblue: #95b9c7;
+$darkblue:  #000080;
+$purple: #9f87c7;
+$white: #fff;
+$darkred: #6f0000;
+$burgundy: #ff2400;
+$darkerred: #af0000;
+
+body {
+  background: $darkblue; // For browsers that do not support gradients */
+  background: -webkit-linear-gradient($darkblue, $purple) fixed; //For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient($darkblue, $purple) fixed; // For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient($darkblue, $purple) fixed; // For Firefox 3.6 to 15 */
+  background: linear-gradient($darkblue, $purple) fixed; // Standard syntax */
+  background-repeat: no-repeat;
+}
+
+.btn {
+  background-color: $darkred;
+  color: $white;
+}
+
+.bton {
+  background-color: $darkblue;
+  color: $white;
+}
+
+.event-access {
+  background-color: $lightblue;
+}
+
+.events {
+  background: $burgundy; // For browsers that do not support gradients */
+  background: -webkit-linear-gradient($burgundy, $darkerred); //For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient($burgundy, $darkerred); // For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient($burgundy, $darkerred); // For Firefox 3.6 to 15 */
+  background: linear-gradient($burgundy, $darkerred); // Standard syntax */
+  background-repeat: no-repeat;
+  color: $white;
+}
+
+.sign-in-page {
+  background-color: $lightblue;
+}
+
+.title {
+  color: $white;
+}
+
+.user-access {
+  background-color: $lightblue;
+}
