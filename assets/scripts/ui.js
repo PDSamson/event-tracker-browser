@@ -5,6 +5,7 @@ const showEventsTemplate = require('./templates/event-listing.handlebars')
 
 const signUpSuccess = function () {
   $('#feedback-message').text('Sign-up Successful')
+  $('#sign-up').children('input').val('')
 }
 
 const signUpFailure = function () {

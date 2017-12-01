@@ -10,7 +10,6 @@ const onSignUp = function (event) {
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
-  $('#sign-up').children('input').val('')
 }
 
 const onSignIn = function (event) {
