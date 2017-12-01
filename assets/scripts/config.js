@@ -2,7 +2,7 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://event-tracker-api.herokuapp.com/'
+    production: 'https://event-tracker-api.herokuapp.com'
   }
 }
 
