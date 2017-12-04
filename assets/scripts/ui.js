@@ -115,6 +115,16 @@ const updateFailure = function () {
   $('#feedback-message').text('Update Failed')
 }
 
+const otherFindSuccess = function (data) {
+  console.log(data.events)
+  const foundData = data.events.filter(event => event.title === store.title)
+  if (foundData === []) {
+    $('#feedback-message').text('No event found')
+  } else {
+    showSuccess(foundData)
+  }
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -129,5 +139,6 @@ module.exports = {
   createSuccess,
   createFailure,
   updateSuccess,
-  updateFailure
+  updateFailure,
+  otherFindSuccess
 }

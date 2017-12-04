@@ -3,6 +3,7 @@
 const getFormFields = require('../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const store = require('./store')
 
 const onSignUp = function (event) {
   const data = getFormFields(this)
@@ -61,6 +62,14 @@ const onUpdateEvent = function (event) {
     .catch(ui.updateFailure)
 }
 
+const onFindEvent = function (event) {
+  store.title = $('#find-title').val()
+  event.preventDefault()
+  api.showEvents()
+    .then(ui.otherFindSuccess)
+    .catch(ui.showFailure)
+}
+
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -69,6 +78,7 @@ const addHandlers = function () {
   $('#show-events').on('submit', onShowEvents)
   $('#create-event').on('submit', onCreateEvent)
   $('#update-event').on('submit', onUpdateEvent)
+  $('#find-event').on('submit', onFindEvent)
 }
 
 module.exports = {
