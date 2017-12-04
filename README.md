@@ -7,6 +7,7 @@ I approached this project starting with the backend, working through the steps w
 
 When I cam across problems, I tried to work through my code backward to find the issue and used console logs to understand how my code was behaving. If I wanted to find out how to do something, I found that google was usually able to direct me to the correct resource. I also sought the advice of my peers to see how they had handled these issues. When none of these methods produced a solution, I submitted an issue to my instructors.
 
+- API Repo: https://github.com/PDSamson/event-tracker-api
 - Browser URL: https://pdsamson.github.io/event-tracker-browser/
 - API URL: https://event-tracker-api.herokuapp.com
 
