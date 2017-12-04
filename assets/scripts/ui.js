@@ -26,6 +26,7 @@ const signInFailure = function () {
 const signOutSuccess = function () {
   $('#feedback-message').text('Sign out Success')
   store.user = null
+  $('.event-container').empty()
   $('.content-page').hide()
   $('.sign-in-page').show()
 }
