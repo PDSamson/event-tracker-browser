@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Schedule Tracker</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body class="container-fluid">
+      <h1 class="title">Event Tracker</h1>
+      <div id="feedback-message" class="feedback-message"></div>
+      <div class="sign-in-page">
+      <form id="sign-up">
+        <input name="credentials[email]" type="text" placeholder="email">
+        <input name="credentials[password]" type="password" placeholder="password">
+        <input name="credentials[password_confirmation]" type="password" placeholder="confirm password">
+        <button type="submit" class="btn btn-default">Sign Up</button>
+      </form>
+      <form id="sign-in">
+        <input name="credentials[email]" type="text" placeholder="email">
+        <input name="credentials[password]" type="password" placeholder="password">
+        <button type="submit" class="btn btn-default">Sign In</button>
+      </form>
+    </div>
+    <div class="content-page">
+      <div class="user-access">
+      <form id="change-password" class="mechanic">
+        <input type="text" name="passwords[old]" placeholder="Old Password"><br>
+        <input type="text" name="passwords[new]" placeholder="New Password"><br>
+        <button type="submit" class="btn btn-default">Change Password</button>
+      </form>
+      <form id="sign-out" class="sign-out">
+        <button type="submit" class="btn btn-default">Sign Out</button>
+      </form>
+    </div>
+    <div class="event-access">
+      <form id="show-events" class="mechanic">
+        <button type="submit" class="btn btn-default">Show me my events</button>
+      </form>
+      <form id="create-event" class="mechanic">
+        <input type="text" name="event[title]" placeholder="Title">
+        <input type="text" name="event[location]" placeholder="Location">
+        <input type="text" name="event[dresscode]" placeholder="Dresscode">
+        <input type="text" name="event[date]" placeholder="Date">
+        <input type="text" name="event[attendees]" placeholder="# of Attendees">
+        <button type="submit" class="btn btn-default">Add Event</button>
+      </form>
+      <!--<form id="find-event" class="mechanic">
+        <input id="find-title" type="text" placeholder="Title">
+        <button type="submit" class="btn btn-default">Get My Event</button>
+      </form> -->
+      <form id="update-event" data-id='' class="mechanic">
+        <input id="update-title" type="text" name="event[title]" value="" >
+        <input id="update-location" type="text" name="event[location]" value="">
+        <input id="update-dresscode" type="text" name="event[dresscode]" value="">
+        <input id="update-date" type="text" name="event[date]" value="">
+        <input id="update-attendees" type="text" name="event[attendees]" value="">
+        <button type="submit" class="btn btn-default">Update Event</button>
+      </form>
+    </div>
+      <div class="event-container"></div>
+    </div>
+    </body>
+</html>
