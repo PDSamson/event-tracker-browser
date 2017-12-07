@@ -28,6 +28,7 @@ const signOutSuccess = function () {
   store.user = null
   $('.event-container').empty()
   $('.content-page').hide()
+  $('#show-events').hide()
   $('.sign-in-page').show()
 }
 
@@ -73,8 +74,25 @@ const populateUpdateFields = function (id) {
     .catch(findFailure)
 }
 
+const checkSuccess = function (data) {
+  if (data.events.length !== 0) {
+    $('#show-events').show()
+  } else {
+    $('#show-events').hide()
+  }
+}
+
+const showFailure = function () {
+  $('#feedback-message').text('Events could not be retrieved')
+}
+
+const checkEvents = function () {
+  api.showEvents()
+    .then(checkSuccess)
+    .catch(showFailure)
+}
+
 const showSuccess = function (data) {
-  console.log(data.events)
   $('.event-container').empty()
   const showEventsHtml = showEventsTemplate({ events: data.events })
   $('.event-container').append(showEventsHtml)
@@ -82,6 +100,7 @@ const showSuccess = function (data) {
     e.preventDefault()
     api.deleteEvent($(e.target).parent().data('id'))
       .then(deleteSuccess(e))
+      .then(checkEvents)
       .catch(deleteFailure)
   })
   $('.update').on('click', function (e) {
@@ -91,12 +110,9 @@ const showSuccess = function (data) {
   })
 }
 
-const showFailure = function () {
-  $('#feedback-message').text('Events could not be retrieved')
-}
-
 const createSuccess = function () {
   $('#feedback-message').text('Event Created')
+  $('#show-events').show()
 }
 
 const createFailure = function () {
@@ -141,5 +157,7 @@ module.exports = {
   createFailure,
   updateSuccess,
   updateFailure,
-  otherFindSuccess
+  otherFindSuccess,
+  checkEvents,
+  checkSuccess
 }

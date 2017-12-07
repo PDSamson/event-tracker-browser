@@ -10,6 +10,7 @@ $(() => {
 
 $('#update-event').hide()
 $('.content-page').hide()
+$('#show-events').hide()
 
 $(() => {
   events.addHandlers()
